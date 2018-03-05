@@ -18,8 +18,9 @@ function draw() {
   setupvar = false;
   allCircles = [];
 
+  // when r is 50, we want r = 0.5, r is 25, we want 0.25, r is 10, we want 0.10
   can.scale(s, s);
-  s += 0.001;
+  s += 0.007;
   // superScale = superScale + 0.01;
 
   // rotate(PI/3);
@@ -34,6 +35,7 @@ function drawThree(x, y, r) {
   rotate(PI/6);
   var scale = 0.6;
   var scale2 = 0.6;
+  strokeWeight(r / 100);
   noFill();
   ellipse(x - 400, y - 300, r);
   rotate(-PI/6);
@@ -43,7 +45,7 @@ function drawThree(x, y, r) {
     rad: r
   };
   allCircles.push(ell);
-  if (r > 5) {
+  if (r > 2) {
     // Yeah, the browser is smart, won't let us do this without a base condition:
     drawThree(x + r * scale, y, r * scale2);
     // Never gets to this second call.....:
