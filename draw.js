@@ -17,7 +17,7 @@ function draw() {
   // when r is 50, we want r = 0.5, r is 25, we want 0.25, r is 10, we want 0.10
   can.scale(s, s);
   // adjust speed of zoom:
-  s += 0.007;
+  s += 0.027;
   drawThree(width/2, height/2, 200);
 }
 
