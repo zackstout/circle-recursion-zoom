@@ -1,59 +1,54 @@
 
-var superScale;
-var allCircles = [];
-var setupvar = true;
 var can;
 var s = 1;
+var colors = ['red', 'orange', 'yellow', 'forestgreen', 'blue', 'violet', 'indigo'];
+var circleColors = {};
+var colorNo = 0;
 
 function setup() {
   can = createCanvas(1000, 600);
   background(200);
   superScale = 1;
-  // drawThree(width/2, height/2, 200);
-  // console.log(allCircles);
 }
 
 function draw() {
   background(200);
-  setupvar = false;
-  allCircles = [];
 
   // when r is 50, we want r = 0.5, r is 25, we want 0.25, r is 10, we want 0.10
   can.scale(s, s);
+  // adjust speed of zoom:
   s += 0.007;
-  // superScale = superScale + 0.01;
-
-  // rotate(PI/3);
   drawThree(width/2, height/2, 200);
-  // rotate(-PI/3);
-
 }
 
-// Oh of course, it was working as intended all along, I just forgot the  in the second call!
 function drawThree(x, y, r) {
+  var color;
 
+  // pretty crazy that this angle just happened to work, i don't understand the logic at all:
   rotate(PI/6);
   var scale = 0.6;
   var scale2 = 0.6;
   strokeWeight(r / 100);
+
+  if (circleColors[r]) {
+    color = circleColors[r];
+  } else {
+    color = colors[colorNo];
+    circleColors[r] = color;
+    colorNo = (colorNo + 1) % 7;
+  }
+  // console.log(color);
+
+  // var colorNo = Math.floor(r) % 7;
+  stroke(color);
   noFill();
   ellipse(x - 400, y - 300, r);
   rotate(-PI/6);
-  var ell = {
-    xPos: x,
-    yPos: y,
-    rad: r
-  };
-  allCircles.push(ell);
+
   if (r > 2) {
     // Yeah, the browser is smart, won't let us do this without a base condition:
     drawThree(x + r * scale, y, r * scale2);
-    // Never gets to this second call.....:
     drawThree(x + r * -scale, y, r * scale2);
-  } else if (setupvar) {
-    console.log(allCircles);
-    setupvar = false;
   }
-
 
 }
