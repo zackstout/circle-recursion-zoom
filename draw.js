@@ -10,24 +10,18 @@ function draw() {
 
 }
 
-
+// Oh of course, it was working as intended all along, I just forgot the  in the second call!
 function drawThree(x, y, r) {
-  var scale = 1.2;
+  var scale = 0.6;
+  var scale2 = 0.6;
   noFill();
   ellipse(x, y, r);
-  ellipse(x + r * scale, y, r/2);
-  ellipse(x - r * scale, y, r/2);
-  push();
-  translate(x - r * scale, 0);
-  ellipse(r * scale/2, y, r/4);
-  ellipse(-r* scale/2, y, r/4);
-  pop();
 
-  if (r > 0.000000001) {
+  if (r > 2) {
     // Yeah, the browser is smart, won't let us do this without a base condition:
-    drawThree(x + r * scale, y, r/2);
+    drawThree(x + r * scale, y, r * scale2);
     // Never gets to this second call.....:
-    // drawThree(r * -scale, height/2, r/2);
+    drawThree(x + r * -scale, y, r * scale2);
   }
 
 
