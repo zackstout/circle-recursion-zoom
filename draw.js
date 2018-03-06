@@ -18,9 +18,10 @@ function draw() {
 
   // when r is 50, we want r = 0.5, r is 25, we want 0.25, r is 10, we want 0.10
   // Nice, we can power up to mitigate the severe slowing problem:
+  // Oh crazy, passing 3 as the power skews the sketch:
   can.scale(Math.pow(s, 2), Math.pow(s, 2));
   // adjust speed of zoom:
-  s += 0.027;
+  s += 0.010;
   drawThree(width/2, height/2, 200);
 }
 
@@ -33,7 +34,8 @@ function drawThree(x, y, r) {
   rotate(PI/6);
   var scale = 0.6;
   // the higher this gets, the more complex, because circles don't die as fast:
-  var scale2 = 0.54288;
+  // OH BOY WE HIT IT:
+  var scale2 = 0.543458;
   // Here we can power down to make the strokeweight diminish more slowly as we zoom in to smaller circles:
   strokeWeight(Math.pow(r,0.5) / 20);
 
