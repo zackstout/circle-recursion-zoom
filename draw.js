@@ -21,7 +21,7 @@ function draw() {
   // Oh crazy, passing 3 as the power skews the sketch:
   can.scale(Math.pow(s, 2), Math.pow(s, 2));
   // adjust speed of zoom:
-  s += 0.010;
+  s += 0.05;
   drawThree(width/2, height/2, 200);
 }
 
