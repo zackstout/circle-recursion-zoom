@@ -11,18 +11,25 @@ function setup() {
   can = createCanvas(1000, 600);
   background(200);
   superScale = 1;
+
+  push();
+  translate(width/2, height/2);
+  drawThree(width/2, height/2, 300);
+  pop();
 }
 
 function draw() {
-  background(200);
+  // background(200);
 
   // when r is 50, we want r = 0.5, r is 25, we want 0.25, r is 10, we want 0.10
   // Nice, we can power up to mitigate the severe slowing problem:
+
+  // UNCOMMENT THESE TO RESUME:
   // Oh crazy, passing 3 as the power skews the sketch:
-  can.scale(Math.pow(s, 2), Math.pow(s, 2));
+  // can.scale(Math.pow(s, 2), Math.pow(s, 2));
   // adjust speed of zoom:
-  s += 0.05;
-  drawThree(width/2, height/2, 200);
+  // s += 0.05;
+  // drawThree(width/2, height/2, 200);
 }
 
 
@@ -31,13 +38,15 @@ function drawThree(x, y, r) {
   var color;
 
   // pretty crazy that this angle just happened to work, i don't understand the logic at all:
-  rotate(PI/6);
+
+  // COMMENTING OUT ROTATE FOR NOW:
+  // rotate(PI/6);
   var scale = 0.6;
   // the higher this gets, the more complex, because circles don't die as fast:
   // OH BOY WE HIT IT:
   var scale2 = 0.543458;
   // Here we can power down to make the strokeweight diminish more slowly as we zoom in to smaller circles:
-  strokeWeight(Math.pow(r,0.5) / 20);
+  strokeWeight(Math.pow(r,0.5) / 7);
 
   if (circleColors[r]) {
     color = circleColors[r];
@@ -52,7 +61,7 @@ function drawThree(x, y, r) {
   stroke(color);
   noFill();
   ellipse(x - 400, y - 300, r);
-  rotate(-PI/6);
+  // rotate(-PI/6);
 
   // if (dist(x - 400, y - 300, ))
   if (r > 0.15) {
