@@ -46,7 +46,7 @@ function drawThree(x, y, r) {
   // OH BOY WE HIT IT:
   var scale2 = 0.543458;
   // Here we can power down to make the strokeweight diminish more slowly as we zoom in to smaller circles:
-  strokeWeight(Math.pow(r,0.5) / 7);
+  strokeWeight(Math.pow(r,0.5) / 20);
 
   if (circleColors[r]) {
     color = circleColors[r];
@@ -59,7 +59,9 @@ function drawThree(x, y, r) {
 
   // var colorNo = Math.floor(r) % 7;
   stroke(color);
-  noFill();
+
+  fill(color);
+  // noFill();
   ellipse(x - 400, y - 300, r);
   // rotate(-PI/6);
 
