@@ -11,7 +11,8 @@ Without fill:
 ![screen shot 2018-03-06 at 11 27 01 pm](https://user-images.githubusercontent.com/29472568/37075137-f7202478-2195-11e8-8a44-dc7cc1dfbf47.png)
 
 ## Animation:
-![](https://media.giphy.com/media/4bibVjZ2LBbnGWvLoO/giphy.gif)
+<img src="https://media.giphy.com/media/4bibVjZ2LBbnGWvLoO/giphy.gif" width="850px">
+<!-- ![](https://media.giphy.com/media/4bibVjZ2LBbnGWvLoO/giphy.gif) -->
 
 
 ## Completed Features
